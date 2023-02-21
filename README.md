@@ -4,4 +4,4 @@
 
 В этой задаче тестируем новый функционал доставки карты.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/wfs3lx9h1e2eamxa?svg=true)](https://ci.appveyor.com/project/konstantinDukov423/aqa-homework5-1)
+[![Build status](https://ci.appveyor.com/api/projects/status/cpa799vebd9mvyr5?svg=true)](https://ci.appveyor.com/project/konstantinDukov423/aqa-homework5-1-fix)
