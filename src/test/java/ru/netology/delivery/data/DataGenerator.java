@@ -31,6 +31,7 @@ public class DataGenerator {
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String name = lastName + " " + firstName;
+        name.replaceAll("ё", "е");
         return name;
     }
 
