@@ -3,14 +3,9 @@ package ru.netology.delivery.test;
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 import ru.netology.delivery.data.DataGenerator;
-
-import java.awt.*;
-import java.security.Key;
-
 import static com.codeborne.selenide.Selenide.*;
 
 class DeliveryTest {
@@ -36,10 +31,12 @@ class DeliveryTest {
         $("[data-test-id='phone'] input").setValue(validPhone);
         $x("//span[@class='checkbox__box']").click();
         $x("//span[@class='button__text']").click();
+        $x("//div[@data-test-id='success-notification']//div[@class='notification__content']").shouldBe(Condition.appear, Condition.exactText("Встреча успешно запланирована на " + firstMeetingDate));
         $("[data-test-id='date'] input").sendKeys(deleteText);
         $("[data-test-id='date'] input").setValue(secondMeetingDate);
         $x("//span[@class='button__text']").click();
+        $x("//div[@data-test-id='replan-notification']//div[@class='notification__content']").shouldBe(Condition.appear, Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
         $x("//div[@class='notification__content']//span[@class='button__text']").click();
-        $x("//div[@data-test-id='success-notification']//div[@class='notification__content']").shouldBe(Condition.appear);
+        $x("//div[@data-test-id='success-notification']//div[@class='notification__content']").shouldBe(Condition.appear, Condition.exactText("Встреча успешно запланирована на " + secondMeetingDate));
     }
 }
